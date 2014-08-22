@@ -2,26 +2,42 @@
 <html>
   <head>
     <title></title>
+    <style>
+      .routable{
+        display:none;
+      }
+    </style>
   </head>
   <body>
 
     <a href="#">Root</a>
     <a href="#test1">Show popup 1</a>
     <a href="#test2">Show popup 2</a>
+    
+    <div class="">
+        <div class="routable" data-path="">
+            <p>Root</p>
+        </div>
+        <div class="routable" data-path="test1">
+            <p>Test 1</p>
+        </div>
+        <div class="routable" data-path="test2">
+            <p>Test 2</p>
+        </div>
+    </div>
 
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../lib/routie.js"></script>
     <script>
-
-      routie({
-        '': function() {
-          alert('root');
-        },
-        'test1': function() {
-          alert('popup 1 alert');
-        },
-        'test2': function() {
-          alert('popup 2 alert');
-        }
+      function show_section(path){
+         $('.routable').filter("[data-path='"+path+"']").show().end().not("[data-path='"+path+"']").hide();
+      }
+      $(document).ready(function(){
+        routie({
+          '*': function(path) {
+            show_section(path);
+          }
+        });
       });
     </script>
   </body>
