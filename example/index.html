@@ -1,7 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
+<html><head>
     <title></title>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
       .routable{
         display:none;
@@ -10,21 +9,44 @@
   </head>
   <body>
 
-    <a href="#">Root</a>
-    <a href="#test1">Show popup 1</a>
-    <a href="#test2">Show popup 2</a>
-    
-    <div class="">
-        <div class="routable" data-path="">
-            <p>Root</p>
+    <div class="navbar navbar-inverse navbar-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Routing demo</a>
         </div>
-        <div class="routable" data-path="test1">
-            <p>Test 1</p>
-        </div>
-        <div class="routable" data-path="test2">
-            <p>Test 2</p>
-        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
     </div>
+
+    <div class="container">
+
+      <section style="display: block;" class="starter-template routable" data-path="">
+        <h1>Home</h1>
+        <p class="lead">This is the first page, which is also the default page because it has an empty hash path</p>
+      </section>
+
+      <section style="display: none;" class="starter-template routable" data-path="about">
+        <h1>About Us</h1>
+        <p class="lead">We are awesome people! We use routing because <strong>we make cool pages that don't need no stinkin' reloads!</strong></p>
+      </section>
+
+      <section style="display: none;" class="starter-template routable" data-path="contact">
+        <h1>Contact Us</h1>
+        <p class="lead">We are from Paris and we love croissants! Oh yeah! Bonjour, t'es un mec et t'as pas de croissants! Non mais bonjour quoi!</p>
+      </section>
+    </div><!-- /.container -->
 
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="../lib/routie.js"></script>
@@ -41,5 +63,6 @@
         });
       });
     </script>
-  </body>
-</html>
+  
+
+</body></html>
